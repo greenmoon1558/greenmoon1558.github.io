@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- src/index.html -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test Task</title>
+    <!-- inject:css -->
+
+    <!-- endinject -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+</head>
+
+<body>
+
+    <header>
+    </header>
+    <main>
+        <aside>
+            <nav class="sidebar">
+                <div class="fixed_bar">
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <div class="item_wrapper fixed_bar__green_button"></div>
+                                <span>Production</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="item_wrapper fixed_bar__blue_button"></div>
+                                <span>Stage</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="item_wrapper fixed_bar__yellow_button"></div>
+                                <span>Test</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="item_wrapper fixed_bar__red_button"></div>
+                                <span>Privat</span>
+                            </a>
+                        </li>
+                        <li>
+                            <hr>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-plus"></i>
+                                <span>Add</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <hr>
+                            <a href="#" id="user_setting">
+                                <img src="images/user.png" alt="user">
+
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="pullout_bar">
+                    <ul>
+                        <li>
+                            <a href="#" id="menu" onclick="toggle()">
+                                <div class="pullout_bar__menu_icon">
+                                    <i class="fa fa-bars"></i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="brain_icon"></i>
+                                <span>organize</span>
+                                <ul>
+                                    <li>Workspace</li>
+                                    <li>Workspace Settings</li>
+                                </ul>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <i class="chart_icon"></i>
+                                <span>analyze</span>
+                                <ul>
+                                    <li class="active">Dashboard</li>
+                                </ul>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="rings_icon"></i>
+                                <span>integrate</span>
+                                <ul>
+                                    <li>Flows
+                                        <div class="messages_icons">
+                                            <i class="fa fa-pencil"></i>
+                                            17
+                                        </div>
+                                    </li>
+                                    <li>Credentials</li>
+                                    <li>Recipes</li>
+                                    <li>Agents</li>
+                                </ul>
+
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-code"></i>
+                                <span>develop</span>
+                                <ul>
+                                    <li>Components</li>
+                                </ul>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+
+        <section>
+            <article class="canvas_wrapper">
+                <h1>
+                    <img src="images/elastic.png" alt="elastic">
+                    <span>Dashboard</span>
+                </h1>
+                <canvas id="speedChart" width="770" height="130"></canvas>
+            </article>
+
+            <article class="runlog_wrapper">
+                <h1>
+                    <span>Runlog</span>
+                    <button>
+                        <i class="fa fa-plus">
+                        </i>
+                        Add new flow</button>
+                </h1>
+                <dl>
+                    <dt class="active">
+                        <i class="fa fa-clock-o"></i>
+                        <span>Past executions</span>
+                    </dt>
+                    <dd>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Author</th>
+                                    <th>Integration flow</th>
+                                    <th>Time</th>
+                                    <th>Records</th>
+                                    <th>Errors</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <img src="images/user-default.png" alt="default user avatar">
+                                    </td>
+                                    <td>ACTIVE FLOW</td>
+                                    <td>a few seconds ago</td>
+                                    <td>0</td>
+                                    <td>67</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="images/user-default.png" alt="default user avatar">
+                                    </td>
+                                    <td>ACTIVE FLOW</td>
+                                    <td>Today at 14:19</td>
+                                    <td>2</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="images/user-default.png" alt="default user avatar">
+                                    </td>
+                                    <td>ACTIVE FLOW</td>
+                                    <td>Today at 14:13</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="images/user-default.png" alt="default user avatar">
+                                    </td>
+                                    <td>ACTIVE FLOW</td>
+                                    <td>Today at 14:10</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </dd>
+                    <dt>
+                        <i class="warning-icon"></i>
+                        <span>Errors</span>
+                    </dt>
+                    <dd>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Author2</th>
+                                    <th>Integration flow</th>
+                                    <th>Time</th>
+                                    <th>Records</th>
+                                    <th>Errors</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <img src="images/user-default.png" alt="default user avatar">
+                                    </td>
+                                    <td>ACTIVE FLOW</td>
+                                    <td>a few seconds ago</td>
+                                    <td>0</td>
+                                    <td>67</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="images/user-default.png" alt="default user avatar">
+                                    </td>
+                                    <td>ACTIVE FLOW</td>
+                                    <td>Today at 14:19</td>
+                                    <td>2</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="images/user-default.png" alt="default user avatar">
+                                    </td>
+                                    <td>ACTIVE FLOW</td>
+                                    <td>Today at 14:13</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="images/user-default.png" alt="default user avatar">
+                                    </td>
+                                    <td>ACTIVE FLOW</td>
+                                    <td>Today at 14:10</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </dd>
+                </dl>
+
+            </article>
+        </section>
+        <div id="user_setting__wrapper">
+            <div class="arrow"></div>
+            <div class="user_setting">
+                <div>
+                    <img src="images/user.png" alt="user" class="user">
+                    <div>
+                        <h4>John Doe</h4>
+                        <span>john.doe@acme.org</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="active">
+                        Microsoft
+                        <i class="fa fa-check"></i>
+                    </div>
+
+                    <div>
+                        Apple
+                    </div>
+                </div>
+
+                <div>
+                    <div>
+                        <i class="setting-icon"></i>
+                        <span>Settings</span>
+                    </div>
+                    <div>
+                        <i class="signout-icon"></i>
+                        <span>Sign Out</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+    </footer>
+    <!-- inject:js -->
+
+    <!-- endinject -->
+
+</body>
+
+</html>

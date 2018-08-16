@@ -1,0 +1,320 @@
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css";
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+@import "aside.less";
+
+@fixed_bar-size: 57px;
+
+@pullout_bar-size: 70px;
+@pullout_bar-size_active: 205px;
+body,
+html,
+main {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+main {
+  height: 100%;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: box;
+
+  -ms-flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -ms-box-orient: horizontal;
+  box-orient: horizontal;
+}
+
+section {
+  -ms-flex: 1;
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -ms-box-flex: 1;
+  box-flex: 1;
+  transition: left 0.5s linear;
+  left: @fixed_bar-size+ @pullout_bar-size;
+  article {
+    width: 770px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  article.canvas_wrapper {
+    h1 {
+      font-family: "Open Sans", sans-serif;
+      font-size: 12px;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      margin-top: 12px;
+      width: 770px;
+      margin-left: auto;
+      margin-right: auto;
+      img {
+        display: inline-block;
+        width: 42px;
+        height: 30px;
+        margin-right: 20px;
+      }
+      span {
+        vertical-align: middle;
+      }
+      margin-bottom: 45px;
+    }
+    margin-bottom: 65px;
+  }
+  article.runlog_wrapper {
+    h1 {
+      font-family: "Open Sans", sans-serif;
+      font-size: 20px;
+      font-weight: 900;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      button {
+        font-family: "Open Sans", sans-serif;
+        font-size: 10px;
+        color: #ffffff;
+        background-color: #69a17a;
+        border-radius: 5px;
+        padding: 8px 12px;
+        border: none;
+      }
+    }
+    dl {
+      width: 770px;
+    }
+    dt {
+      float: left;
+      cursor: default;
+      width: 130px;
+      height: 20px;
+      border-radius: 5px;
+      display: flex;
+    }
+    dd {
+      position: absolute;
+      margin-top: 30px;
+      margin-left: 0;
+    }
+    dt.active span {
+      color: #000;
+      padding-left: 5px;
+    }
+    dt span {
+      color: #4989ca;
+      padding-left: 5px;
+    }
+    dt + dd {
+      display: none;
+    }
+    dt {
+      padding: 5px 10px;
+      font-family: "Open Sans", sans-serif;
+      font-size: 12px;
+    }
+    dt.active {
+      border-left: 1px solid #babbc085;
+      border-right: 1px solid #babbc085;
+      border-top: 1px solid #babbc085;
+      border-radius: 5px 5px 0 0;
+    }
+    dt.active + dd {
+      display: block;
+      width: 770px;
+    }
+    .warning-icon {
+      background-color: #000;
+      -webkit-mask-image: url("../images/round-error-symbol.svg");
+      mask-image: url("../images/round-error-symbol.svg");
+      background-size: 20px;
+      -webkit-mask-size: cover;
+      mask-size: cover;
+      height: 15px;
+      width: 15px;
+    }
+    table {
+      border-collapse: collapse;
+      width: 770px;
+      border-top: 3px solid #babbc085;
+      th {
+        text-align: left;
+      }
+      td,
+      th {
+        font-family: "Open Sans", sans-serif;
+        font-size: 12px;
+        border: 1px solid #babbc085;
+        padding: 5px 18px;
+      }
+
+      td:nth-child(2) {
+        color: #4989ca;
+      }
+    }
+  }
+}
+
+div.user_setting {
+  position: absolute;
+  left: 60px;
+  bottom: 10px;
+  border: 1px solid #274758;
+  width: 200px;
+  height: 200px;
+  background-color: #2b3541;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  font-size: 10px;
+  align-items: flex-start;
+  div {
+    border-radius: 0;
+    color: #fff;
+  }
+}
+div.user_setting > div:first-child {
+  display: flex;
+  img.user {
+    width: 38px;
+    height: 40px;
+    margin: 0;
+    margin-right: 10px;
+  }
+}
+
+div.user_setting > div {
+  height: 70px;
+  width: 180px;
+  padding: 10px;
+}
+div.user_setting > div:first-child > div {
+  h4 {
+    margin: 0px;
+  }
+  span {
+    color: #6c88a8;
+  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.setting-icon {
+  background-color: #fff;
+  -webkit-mask-image: url("../images/settings-cog.svg");
+  mask-image: url("../images/settings-cog.svg");
+  background-size: 20px;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  height: 15px;
+  width: 15px;
+}
+.signout-icon {
+  background-color: #6c88a8;
+  -webkit-mask-image: url("../images/shut-down.svg");
+  mask-image: url("../images/shut-down.svg");
+  background-size: 20px;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  height: 15px;
+  width: 15px;
+}
+div.user_setting > div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  justify-items: stretch;
+  align-items: stretch;
+  border-bottom: 1px solid #475462;
+  border-top: 1px solid #475462;
+  div {
+    height: 50%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    border-bottom: 1px solid #44484c;
+    justify-content: space-between;
+  }
+  div:last-child {
+    border-bottom: none;
+  }
+}
+div.user_setting > div:nth-child(3) {
+  display: flex;
+  flex-direction: row;
+  justify-items: stretch;
+  align-items: stretch;
+  padding: 0;
+
+  div {
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+    i {
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      margin: 5px;
+    }
+  }
+  div:nth-child(2) {
+    border-left: 1px solid #475462;
+    color: #6c88a8;
+  }
+}
+div.arrow {
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 15px solid #2b3541;
+  position: absolute;
+  left: 47.5px;
+  bottom: 10px;
+  z-index: 12;
+}
+
+#user_setting__wrapper.active {
+  display: block;
+}
+
+#user_setting__wrapper {
+  display: none;
+}
+.pullout_bar.active .messages_icons {
+  display: inline-block;
+}
+.pullout_bar .messages_icons {
+  display: none;
+}
+
+@media only screen and (max-width: 900px) {
+  section article.canvas_wrapper > h1,
+  section article.runlog_wrapper dl,
+  section article {
+    min-width: 500px;
+    width: 94%;
+    margin-left: 3%;
+    margin-right: 3%;
+  }
+
+  section article.runlog_wrapper dt.active + dd {
+    width: auto;
+  }
+  section article.runlog_wrapper table {
+    min-width: 400px;
+    width: auto;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .sidebar .fixed_bar {
+    display: none;
+  }
+  .sidebar .pullout_bar {
+    left: 0;
+  }
+}

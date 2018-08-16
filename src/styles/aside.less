@@ -1,0 +1,260 @@
+@fixed_bar-size: 57px;
+@fixed_bar__button-size: 12px;
+@fixed_bar__item-font_size: 7px;
+@fixed_bar__item-margin: 5px;
+
+@pullout_bar-size: 70px;
+@pullout_bar-size_active: 205px;
+@pullout_bar__item-margin: 15px;
+@pullout_bar__menu-size: 30px;
+@pullout_bar__menu_icon-size: 15px;
+@fixed_bar__item-font_size: 7px;
+
+@fixed_bar__button-border_color: #203540;
+@fixed_bar__item-color: #6c88a8;
+@fixed_bar-background-color: #181f29;
+@fixed_bar__hr-background-color: #274758;
+
+@pullout_bar-background-color: #1f2935;
+@pullout_bar__menu-color: #4989ca;
+@pullout_bar__menu_border-color: #1b3452;
+@pullout_bar__li_active-background-color: #2c3544;
+aside {
+  transition: width 0.5s linear;
+  width: @fixed_bar-size+ @pullout_bar-size;
+  -ms-flex: 0 @fixed_bar-size+ @pullout_bar-size;
+  -webkit-box-flex: 0;
+  -moz-box-flex: 0;
+  -ms-box-flex: 0;
+  box-flex: 0;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar {
+  overflow: auto;
+  .fixed_bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: @fixed_bar-size;
+    height: 100%;
+    background-color: @fixed_bar-background-color;
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      margin-top: @fixed_bar__item-margin;
+      height: 100%;
+      li:last-child {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        img {
+          margin: @fixed_bar__item-margin*2;
+        }
+      }
+
+      li {
+        display: inline-block;
+        text-align: center;
+        width: @fixed_bar-size;
+        box-sizing: border-box;
+        margin: 3px 0px;
+        a {
+          text-decoration: none;
+          text-align: center;
+          color: @fixed_bar__item-color;
+          font-size: @fixed_bar__item-font_size;
+          font-family: "Open Sans", sans-serif;
+          div.item_wrapper {
+            width: @fixed_bar__button-size;
+            height: @fixed_bar__button-size;
+            border-radius: 50%;
+            border: @fixed_bar__item-margin*2 solid
+              @fixed_bar__button-border_color;
+            margin: @fixed_bar__item-margin (@fixed_bar__item-margin*2)+1px 0
+              (@fixed_bar__item-margin*2)+1px;
+          }
+          .fixed_bar__green_button {
+            background-color: #16de2a;
+          }
+          .fixed_bar__blue_button {
+            background-color: #2b99ff;
+          }
+          .fixed_bar__yellow_button {
+            background-color: #ffbc36;
+          }
+          .fixed_bar__red_button {
+            background-color: #f02240;
+          }
+          .fa-plus {
+            display: block;
+            font-size: @fixed_bar__button-size;
+          }
+        }
+        hr {
+          text-shadow: none;
+          border: none;
+          background-color: @fixed_bar__hr-background-color;
+          height: 1px;
+          margin: @fixed_bar__item-margin*2;
+        }
+      }
+    }
+  }
+  .pullout_bar {
+    transition: width 0.5s linear;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: @fixed_bar-size;
+    width: @pullout_bar-size;
+    height: 100%;
+    background-color: @pullout_bar-background-color;
+    .pullout_bar__menu_icon {
+      margin: @pullout_bar__item-margin @pullout_bar__item-margin*1.33
+        @pullout_bar__item-margin @pullout_bar__item-margin*1.33;
+      border: @pullout_bar__menu_border-color solid @pullout_bar__menu-size / 4;
+      border-radius: 50%;
+      background-color: @pullout_bar__menu_border-color;
+      width: @pullout_bar__menu-size / 2;
+      text-align: center;
+      height: (@pullout_bar__menu-size / 2)+1px;
+      .fa-bars {
+        font-size: @pullout_bar__menu-size / 2;
+        color: @pullout_bar__menu-color;
+      }
+    }
+    ul {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      li:not(:last-child):not(:first-child) i {
+        display: block;
+        margin: auto;
+      }
+
+      li:not(:first-child) {
+        margin-top: 26px;
+        .messages_icons {
+          display: none;
+        }
+        a {
+          color: #fff;
+
+          text-decoration: none;
+          font-family: "Open Sans", sans-serif;
+          span {
+            display: none;
+          }
+          ul {
+            display: none;
+          }
+
+          .chart_icon {
+            -webkit-mask-image: url("../images/chart.svg");
+            mask-image: url("../images/chart.svg");
+            background-color: #fff;
+            background-size: 20px 16px;
+            height: 16px;
+            -webkit-mask-size: cover;
+            mask-size: cover;
+            width: 20px;
+          }
+          .rings_icon {
+            background-color: #fff;
+            -webkit-mask-image: url("../images/rings.svg");
+            mask-image: url("../images/rings.svg");
+            background-size: 20px 12px;
+            -webkit-mask-size: cover;
+            mask-size: cover;
+            height: 12px;
+            width: 20px;
+          }
+          .brain_icon {
+            -webkit-mask-image: url("../images/brain.svg");
+            mask-image: url("../images/brain.svg");
+            background-size: 20px 20px;
+            -webkit-mask-size: cover;
+            mask-size: cover;
+            background-color: #fff;
+            height: 20px;
+            width: 20px;
+          }
+        }
+      }
+      li:nth-child(2) {
+        margin-top: 22.5px;
+      }
+    }
+  }
+
+  div.pullout_bar.active {
+    width: @pullout_bar-size_active;
+    ul {
+      align-items: stretch;
+      li a > span {
+        font-size: 12px;
+      }
+      li:not(:first-child) {
+        a {
+          display: grid;
+          grid-template-columns: 55px auto;
+          grid-template-rows: 20px auto;
+          .fa-code {
+            text-align: center;
+          }
+          span,
+          i {
+            display: inline;
+            text-transform: uppercase;
+            color: @fixed_bar__item-color;
+          }
+          .chart_icon,
+          .rings_icon,
+          .brain_icon {
+            background-color: @fixed_bar__item-color;
+          }
+          ul {
+            display: block;
+            font-size: 10px;
+            grid-column-start: 2;
+            grid-column-end: 2;
+            li {
+              height: 24px;
+              margin-top: auto;
+              display: flex;
+              justify-content: space-between;
+              align-items: baseline;
+              i {
+                color: #fff;
+              }
+            }
+            li.active {
+              background-color: @pullout_bar__li_active-background-color;
+              padding: 5px 5px 5px 7px;
+              margin-right: 10px;
+              position: relative;
+              left: -5px;
+              height: 15px;
+              border-radius: 5px;
+            }
+            .messages_icons {
+              display: inline-block;
+              border-radius: 3px;
+              padding: 2px 5px;
+              margin-right: 15px;
+              font-size: 7px;
+              background-color: #51a0ef;
+            }
+          }
+        }
+      }
+    }
+  }
+}
